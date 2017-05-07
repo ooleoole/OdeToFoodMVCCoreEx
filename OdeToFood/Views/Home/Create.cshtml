@@ -6,22 +6,22 @@
 
 <h1>Create</h1>
 <div>
-    @using (Html.BeginForm())
-    {
+    <form method="post" asp-antiforgery="true">
+        <div asp-validation-summary="ModelOnly"></div>
         <div>
-            @Html.LabelFor(m => m.Name)
-            @Html.EditorFor(m => m.Name)
-            @Html.ValidationMessageFor(m => m.Name)
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
         </div>
         <div>
-            @Html.LabelFor(m => m.Cuisine)
-            @Html.DropDownListFor(m => m.Cuisine, Html.GetEnumSelectList(typeof(CuisineType)))
-            @Html.ValidationMessageFor(m => m.Cuisine)
+            <label asp-for="Cuisine"></label>
+            <select asp-for="Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))"></select>
+            <span asp-validation-for="Cuisine"></span>
         </div>
         <div>
-            <input type="submit" name="save" Value="Save" />
+            <input type="submit" value="Save" />
         </div>
-    }
+    </form>
 </div>
 <div>
     <a asp-controller="@nameof(HomeController).Replace("Controller","")" asp-action="@nameof(HomeController.Index)">Back</a>

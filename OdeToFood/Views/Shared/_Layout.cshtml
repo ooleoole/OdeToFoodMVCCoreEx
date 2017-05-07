@@ -6,12 +6,15 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
-    <footer>
-        @RenderSection("footer", required: false)
-        @await Component.InvokeAsync("Greeting")
-    </footer>
+<div>
+    @await Component.InvokeAsync("LoginLogout")
+</div>
+<div>
+    @RenderBody()
+</div>
+<footer>
+    @RenderSection("footer", required: false)
+    @await Component.InvokeAsync("Greeting")
+</footer>
 </body>
 </html>
