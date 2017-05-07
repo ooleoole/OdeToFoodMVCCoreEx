@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.ExpressionVisitors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -55,9 +56,10 @@ namespace OdeToFood
                 app.UseExceptionHandler("/error");
             }
             app.UseFileServer();
+            app.UseNodeModules(env.ContentRootPath);
             app.UseIdentity();
             app.UseMvc(ConfigureRoutes);
-            app.Run(ctx => ctx.Response.WriteAsync("Not found"));
+            //app.Run(ctx => ctx.Response.WriteAsync("Not found"));
 
         }
 

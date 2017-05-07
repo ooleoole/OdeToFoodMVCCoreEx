@@ -1,13 +1,14 @@
 ﻿@if (User.Identity.IsAuthenticated)
 {
-    <span>Hello, @User.Identity.Name</span>
-    <form method="post" asp-controller="Account" asp-action="Logout" asp-antiforgery="true">
-        <input type="submit" value=@nameof(AccountController.Logout) />
-    </form>
-
+    <div>
+        <span style="padding: 0px 7px">Hello, @User.Identity.Name</span>
+        <form method="post" asp-controller="Account" asp-action="Logout" asp-antiforgery="true">
+            <input class="btn btn-default" type="submit" value=@nameof(AccountController.Logout) />
+        </form>
+    </div>
 }
 else
 {
-    <a asp-controller=@nameof(AccountController).Replace("Controller","") asp-action=@nameof(AccountController.Register)>@nameof(AccountController.Register)</a>
-    <a asp-controller=@nameof(AccountController).Replace("Controller","") asp-action=@nameof(AccountController.Login)>@nameof(AccountController.Login)</a>
+    <a class="btn btn-default" asp-controller=@nameof(AccountController).Replace("Controller","") asp-action=@nameof(AccountController.Register)>@nameof(AccountController.Register)</a>
+    <a class="btn btn-default" asp-controller=@nameof(AccountController).Replace("Controller","") asp-action=@nameof(AccountController.Login)>@nameof(AccountController.Login)</a>
 }
