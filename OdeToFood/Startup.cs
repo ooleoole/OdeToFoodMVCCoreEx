@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OdeToFood.Entities;
-using OdeToFood.NewFolder;
+using OdeToFood.Middleware;
 using OdeToFood.Services;
 
 namespace OdeToFood
@@ -46,7 +46,7 @@ namespace OdeToFood
         {
 
             loggerFactory.AddConsole();
-
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -59,7 +59,7 @@ namespace OdeToFood
             app.UseNodeModules(env.ContentRootPath);
             app.UseIdentity();
             app.UseMvc(ConfigureRoutes);
-            //app.Run(ctx => ctx.Response.WriteAsync("Not found"));
+            app.Run(ctx => ctx.Response.WriteAsync("Not found"));
 
         }
 

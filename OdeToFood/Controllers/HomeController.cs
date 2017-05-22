@@ -12,7 +12,7 @@ namespace OdeToFood.Controllers
     {
         private readonly IRestaruantData _restuarantData;
 
-        public HomeController(IRestaruantData restaruantData, IGreeter greeter)
+        public HomeController(IRestaruantData restaruantData)
         {
             _restuarantData = restaruantData;
             
